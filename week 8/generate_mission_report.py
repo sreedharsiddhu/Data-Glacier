@@ -14,7 +14,7 @@ TEAM_DETAILS = {
     "Member 1 College/Company": "University of Naples Federico II",
     "Member 1 Specialization": "Data Science"
 }
-GITHUB_LINK = "https://github.com/example/repo" # Placeholder as not provided
+GITHUB_LINK = "https://github.com/sreedharsiddhu/Data-Glacier"
 
 FILE_PATH = "Healthcare_dataset (1).xlsx"
 OUTPUT_PDF = "submission.pdf"
