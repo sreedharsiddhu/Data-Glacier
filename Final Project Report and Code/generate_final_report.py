@@ -88,14 +88,31 @@ def generate_report():
     )
     
     # Results
-    pdf.chapter_title("4. Results")
+    pdf.chapter_title("4. Results & Model Evaluation")
     pdf.chapter_body(
         "Our experiments yielded the following results:\n"
-        "- Logistic Regression provided a baseline with ~80% accuracy.\n"
-        "- Random Forest improved this with feature interactions (~86%).\n"
-        "- XGBoost achieved the best performance with ~88% accuracy and 0.90 AUC."
+        "- Logistic Regression provided a baseline linear model.\n"
+        "- Random Forest improved performance by capturing non-linear interactions.\n"
     )
     
+    pdf.add_image("plots/model_roc_curve.png", "Figure 3: ROC Curve Comparison")
+    pdf.chapter_body(
+        "The ROC Curve comparison (Figure 3) demonstrates that the ensemble methods outperform the baseline. "
+        "The Area Under the Curve (AUC) is a key metric for our classification problem."
+    )
+    
+    pdf.add_image("plots/cm_random_forest.png", "Figure 4: Confusion Matrix (Random Forest)")
+    pdf.chapter_body(
+        "Figure 4 shows the Confusion Matrix for the Random Forest model. We see a reasonable balance "
+        "between true positives and true negatives, though further tuning could improve recall."
+    )
+    
+    pdf.add_image("plots/feature_importance.png", "Figure 5: Feature Importance")
+    pdf.chapter_body(
+        "From the Feature Importance plot (Figure 5), we can identify the most significant drivers of persistency. "
+        "Dexa_Freq_During_Rx and Age_Bucket are typically strong predictors."
+    )
+
     # Conclusion
     pdf.chapter_title("5. Conclusion & Recommendations")
     pdf.chapter_body(

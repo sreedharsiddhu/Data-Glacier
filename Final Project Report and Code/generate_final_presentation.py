@@ -113,27 +113,22 @@ def generate_presentation():
                      "Boosting Model: XGBoost (High Accuracy)."
                  ])
 
-    # Slide 7: Model Results
-    # Hardcoded or placeholder results as we are generating the presentation
-    create_slide(pdf, "Model Performance", 
-                 bullets=[
-                     "Logistic Regression: ~80% Accuracy | AUC: 0.82",
-                     "Random Forest: ~86% Accuracy | AUC: 0.88",
-                     "XGBoost: ~88% Accuracy | AUC: 0.90",
-                     "",
-                     "Recommendation: XGBoost selected for production due to highest predictive performance."
-                 ])
+    # Slide 7: Model Results (Detailed)
+    create_slide(pdf, "Model Performance Comparison",
+                 "We evaluated models based on ROC-AUC and Confusion Matrices.",
+                 image_path="plots/model_roc_curve.png")
 
-    # Slide 8: Explainability
-    create_slide(pdf, "Model Explainability", 
-                 "Even with the Black Box model (XGBoost), we can use Feature Importance to understand drivers:",
-                 bullets=[
-                     "Top Factor: Dexa_Freq_During_Rx",
-                     "Secondary Factor: Comorbidity_Index",
-                     "Tertiary Factor: Region"
-                 ])
+    # Slide 8: Confusion Matrix (Random Forest)
+    create_slide(pdf, "Confusion Matrix: Random Forest",
+                 "Random Forest showed a strong balance between Precision and Recall.",
+                 image_path="plots/cm_random_forest.png")
 
-    # Slide 9: Dashboard
+    # Slide 9: Feature Importance
+    create_slide(pdf, "Feature Importance",
+                 "Top drivers of persistency as identified by the Random Forest model.",
+                 image_path="plots/feature_importance.png")
+
+    # Slide 10: Explainability & Dashboard
     create_slide(pdf, "Interactive Dashboard", 
                  "A Streamlit dashboard was developed to allow stakeholders to:",
                  bullets=[
@@ -142,16 +137,16 @@ def generate_presentation():
                      "Get real-time persistency predictions."
                  ])
 
-    # Slide 10: Conclusion
+    # Slide 11: Conclusion
     create_slide(pdf, "Conclusion & Next Steps", 
                  bullets=[
                      "Data quality improved through preprocessing.",
-                     "Robust predictive model achieved (AUC ~0.90).",
+                     "Robust predictive model achieved.",
                      "Actionable insights on regional and risk-based targeting.",
                      "Next Steps: Deploy dashboard and monitor model drift."
                  ])
     
-    # Slide 11: Links
+    # Slide 12: Links
     create_slide(pdf, "Code & Deliverables", 
                   f"Full Source Code and Report available at:\n\n{GITHUB_LINK}")
 
